@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160905194358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bills", force: :cascade do |t|
+    t.string "initiator_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string  "description"
+    t.integer "price"
+    t.integer "bill_id"
+    t.string  "user_id"
+    t.index ["bill_id"], name: "index_items_on_bill_id", using: :btree
+  end
+
+  add_foreign_key "items", "bills"
 end
