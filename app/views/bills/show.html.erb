@@ -1,11 +1,11 @@
 <h1>This is your bill</h1>
 
 <%= form_for @bill do |f| %>
-<% p @bill.items %>
-  <%= @bill.items.each do |item| %>
-    <%= check_box_tag "bill[items][user_id]", value: @user_id %>
-    <%= label_tag :item_description, :item_description %>
-    <%= label_tag :price, (:price.to_f / 100).to_s %>
+<% p @user_id %>
+  <% @bill.items.each do |item| %>
+    <%= check_box_tag "bill[items][#{item.id}][user_id]", value: "#{@user_id.to_i}" %>
+    <%= label_tag :item_description, item.item_description %>
+    <%= label_tag :price, (item.price.to_f / 100).to_s %><br>
   <% end %>
   <%= f.submit %>
 <% end %>
