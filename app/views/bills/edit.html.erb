@@ -1,0 +1,13 @@
+<h1>This is your bill</h1>
+
+<%= form_for @bill do |f| %>
+<%= hidden_field_tag "user_id", @user_id %>
+<%= hidden_field_tag "bill[id]", @bill.id %>
+  <% @bill.items.each do |item| %>
+  <% p item.user_id && item.user_id != @user_id %>
+    <%= check_box_tag "bill[items][#{item.id}][user_id]", @user_id, item.user_id == @user_id, disabled: item.user_id && item.user_id != @user_id %>
+    <%= label_tag :item_description, item.item_description %>
+    <%= label_tag :price, (item.price.to_f / 100).to_s %><br>
+  <% end %>
+  <%= f.submit %>
+<% end %>
