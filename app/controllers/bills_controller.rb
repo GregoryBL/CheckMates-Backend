@@ -1,18 +1,27 @@
 class BillsController < ApplicationController
   def show
+    @bill = Bill.find(params[:id])
+    render json: @bill.as_json(include: :items)
+  end
+
+  def edit
     @bill = Bill.find(params[:bill_id])
     @user_id = params[:id]
-    p @user_id
   end
 
   def update
-    if params[:bill][:items]
-      params[:bill][:items].each do |item_id, user_id_hash|
-        item = Item.find(item_id)
-        p user_id_hash[:user_id]
-        item.user_id = user_id_hash[:user_id][:value]
-        item.save
+    p params
+    user_id = params[:user_id]
+    bill = Bill.find(params[:bill][:id])
+    received_items = params[:bill][:items]
+
+    bill.items.each do |item|
+      if received_items[item.id] == nil
+        item.user_id = nil if item.user_id == user_id # user removed self from that item
+      else
+        item.user_id = user_id if !item.user_id # user added self to item
       end
+      item.save
     end
   end
 
