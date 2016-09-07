@@ -30,7 +30,9 @@ class BillsController < ApplicationController
     itemsArray = params[:bill][:items]
     itemsArray.each do |item|
       p item
-      p new_item = Item.create(item)
+      new_item = Item.create()
+      new_item.price = item[:price]
+      new_item.item_description = item[:item_description]
       itemsArray << new_item
     end
     bill = Bill.new()
