@@ -29,7 +29,8 @@ class BillsController < ApplicationController
     items = []
     itemsArray = params[:bill]
     itemsArray.each do |item|
-      itemsArray << Item.create(item)
+      p new_item = Item.create(item)
+      itemsArray << new_item
     end
     bill = Bill.new()
     bill.items = itemsArray
