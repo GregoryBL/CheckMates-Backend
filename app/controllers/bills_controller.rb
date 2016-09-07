@@ -26,6 +26,7 @@ class BillsController < ApplicationController
   end
 
   def create
+    bill = Bill.new()
     items = []
     itemsArray = params[:bill][:items]
     itemsArray.each do |item|
@@ -33,10 +34,9 @@ class BillsController < ApplicationController
       new_item = Item.create()
       new_item.price = item[:price]
       new_item.item_description = item[:item_description]
-      itemsArray << new_item
+      items << new_item
     end
-    bill = Bill.new()
-    bill.items = itemsArray
+    bill.items = items
     success = bill.save
     render json: { success: success, bill: bill }
   end
