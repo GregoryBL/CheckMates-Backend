@@ -10,19 +10,15 @@ class BillsController < ApplicationController
   end
 
   def update
-    p params
     user_id = params[:user_id]
     bill = Bill.find(params[:bill][:id])
     received_items = params[:bill][:items]
     puts "Received:"
-    p received_items
 
     bill.items.each do |item|
       if received_items && received_items[item.id.to_s] != nil
-        p "in received items #{item.id}"
         item.user_id = user_id if !item.user_id # user added self to item
       else
-        p "not in received items #{item.id}"
         item.user_id = nil if item.user_id == user_id # user removed self from that item
       end
       item.save
