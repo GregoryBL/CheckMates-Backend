@@ -26,7 +26,17 @@ class BillsController < ApplicationController
   end
 
   def create
-    bill = Bill.find_or_initialize_by(bill_params)
+    bill = Bill.new()
+    items = []
+    itemsArray = params[:bill][:items]
+    itemsArray.each do |item|
+      p item
+      new_item = Item.create()
+      new_item.price = item[:price]
+      new_item.item_description = item[:item_description]
+      items << new_item
+    end
+    bill.items = items
     success = bill.save
     render json: { success: success, bill: bill }
   end
