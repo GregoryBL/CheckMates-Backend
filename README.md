@@ -1,24 +1,12 @@
-# README
+# CheckMates
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Checkmates is an iPhone app using TesseractOCR to read characters from a photographed receipt, Twilio to send text messages in the background, Dwolla for peer-to-peer payments along with native iOS features including the camera and contacts. "Mates" claim bill items through a Rails-backed web presence.
 
-Things you may want to cover:
+Team Mates
+* Greg Berns-Leone - [GregoryBL](https://github.com/GregoryBL)
 
-* Ruby version
+* Amy Plant
 
-* System dependencies
+* Lauren Daniels - [LaDaniels](https://github.com/Ladaniels)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Keith Pilson - [keithpilz](https://github.com/keithpilz)
