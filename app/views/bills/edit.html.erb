@@ -1,19 +1,19 @@
 <header></header>
 
 <div class="container">
-	<h1>Select items that belong to you:</h1>
+	<h1>Unclaimed Items</h1>
+	<h3>Select the ones that belong to you</h3>
 
 <%= form_for @bill do |f| %>
   <%= hidden_field_tag "user_id", @user_id %>
   <%= hidden_field_tag "bill[id]", @bill.id %>
 
     <% @bill.items.each do |item| %>
-      <div class="checkbox custom">
-        <input id="<%= item.id %>" class="css-checkbox" type="checkbox" />
+      <div class="item">
+				<%= check_box_tag "bill[items][#{item.id}][user_id]", @user_id, item.user_id == @user_id, disabled: item.user_id && item.user_id != @user_id %>
         <label for="<%= item.id %>" class="css-label"></label>
 
         <% p item.user_id && item.user_id != @user_id %>
-          <%= check_box_tag "bill[items][#{item.id}][user_id]", @user_id, item.user_id == @user_id, disabled: item.user_id && item.user_id != @user_id %>
           <label><%= item.item_description %>:
           <span class = "right">$<%= (item.price.to_f / 100).to_s %></label></span>
       </div>
