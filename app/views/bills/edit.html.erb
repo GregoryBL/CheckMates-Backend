@@ -14,7 +14,8 @@
 
         <% p item.user_id && item.user_id != @user_id %>
           <%= check_box_tag "bill[items][#{item.id}][user_id]", @user_id, item.user_id == @user_id, disabled: item.user_id && item.user_id != @user_id %>
-          <label><%= item.item_description %>: <%= (item.price.to_f / 100).to_s %></label>
+          <label><%= item.item_description %>:
+          <span class = "right">$<%= (item.price.to_f / 100).to_s %></label></span>
       </div>
     <% end %>
       <%= f.submit %>

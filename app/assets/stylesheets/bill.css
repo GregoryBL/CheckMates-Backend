@@ -14,3 +14,7 @@ header {
   background-position: center;
   height: 80px;
 }
+
+.right {
+  float: right;
+}
