@@ -15,16 +15,56 @@ header {
   height: 80px;
 }
 
+@import url('http://fonts.googleapis.com/css?family=Lato');
+
+body, html{
+  height: 100%;
+	font-family: 'Lato', sans-serif;
+  color: #777;
+}
+
+.container{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  padding: 0;
+}
+
+h1 {
+	font-weight: normal;
+  margin-top: 3%;
+}
+
+h3 {
+  margin-botton: 2%;
+  color: #AAAAAA;
+  font-weight: lighter;
+}
+
+
 .right {
   float: right;
 }
-
 
 @media only screen
 and (min-device-width : 375px)
 and (max-device-width : 667px)
 and (orientation : portrait) {
+
   body, html{
-    font-size: 3em;
+    font-size: 1.6em;
+  }
+
+  .item {
+    font-size: 1.2em;
+    line-height: 2em;
+  }
+
+  header {
+    height: 130px;
+  }
+
+  input[type=submit] {
+      width: 100%;
   }
 }
