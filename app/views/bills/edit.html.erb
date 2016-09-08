@@ -9,19 +9,16 @@
   <%= hidden_field_tag "bill[id]", @bill.id %>
 
     <% @bill.items.each do |item| %>
-      <div class="item">
-				<%= check_box_tag "bill[items][#{item.id}][user_id]", @user_id, item.user_id == @user_id, disabled: item.user_id && item.user_id != @user_id %>
-        <label for="<%= item.id %>" class="css-label"></label>
-
-        <% p item.user_id && item.user_id != @user_id %>
-          <label><%= item.item_description %>:
-          <span class = "right">$<%= (item.price.to_f / 100).to_s %></label></span>
+      <div class="item <%= item.user_id && item.user_id == @user_id %>" >
+				<label for="<%= item.id %>" class="css-label">
+					<%= check_box_tag "bill[items][#{item.id}][user_id]", @user_id, item.user_id == @user_id, disabled: item.user_id && item.user_id != @user_id %>
+					<%= label_tag("bill[items][#{item.id}][user_id]", item.item_description + " $" + (item.price.to_f / 100).to_s) %>
+				</label>
       </div>
     <% end %>
-      <%= f.submit %>
+
+		<div class="signature">
+			<%= f.submit %>
+			Brought to you by the <a href="http://checkmatesapp.com">CheckMates</a> app
+		</div>
 <% end %>
-
-
-<div class="signature">
-	Brought to you by the <a href="http://checkmatesapp.com">CheckMates</a> app
-</div>

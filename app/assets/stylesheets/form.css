@@ -1,38 +1,28 @@
-@import url('http://fonts.googleapis.com/css?family=Lato');
-
-body, html{
-  height: 100%;
-	font-family: 'Lato', sans-serif;
-  color: #777;
-}
-
-.container{
-  display: block;
-  margin: 0 auto;
-  width: 80%;
-  padding: 0;
-}
-
-h1 {
-	font-weight: normal;
-  margin-top: 3%;
-}
-
-h3 {
-  margin-botton: 2%;
-  color: #AAAAAA;
-}
-
 .item {
-  margin: 2% 0;
+  margin: 3% 0;
+}
+
+.item.false {
+  display: none;
 }
 
 input[type=checkbox] {
-  margin-right: 1%;
+  display: none;
+}
 
+label {
+  background: white;
+  padding: 10px;
+}
+
+input[type="checkbox"]:checked + label {
+    background: #4CAF50;
+    color: white;
+    border-radius: 5px;
 }
 
 input[type=submit] {
+    display: block;
     background-color: #4CAF50; /* Green */
     border: none;
     border-radius: 5px;
@@ -40,8 +30,8 @@ input[type=submit] {
     padding: 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 1em;
-    margin: 3% 0;
+    font-size: 1.2em;
+    margin: 5% 0;
 }
 
 .signature {
@@ -49,10 +39,10 @@ input[type=submit] {
   display: block;
   font-family: Helvetica, Arial, Sans-Serif;
   text-align: center;
-	margin: 10px auto;
+	margin: 20px 0;
 	bottom: 0;
 	top: auto;
-	width: 90%;
+	width: 80%;
   font-size: 0.85em;
   color: #AAAAAA;
 }
