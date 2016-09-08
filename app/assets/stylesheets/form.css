@@ -29,7 +29,7 @@ h3 {
 
 input[type=checkbox] {
   margin-right: 1%;
-  
+
 }
 
 input[type=submit] {
@@ -40,7 +40,7 @@ input[type=submit] {
     padding: 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1em;
     margin: 3% 0;
 }
 
