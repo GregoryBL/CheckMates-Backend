@@ -23,6 +23,7 @@ class BillsController < ApplicationController
       end
       item.save
     end
+    render :thankyou
   end
 
   def create
