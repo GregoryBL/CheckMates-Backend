@@ -65,6 +65,9 @@ and (orientation : portrait) {
   }
 
   input[type=submit] {
-      width: 100%;
+    width: 100%;
+    -webkit-appearance: none;
+    -webkit-border-radius:0;
+    border-radius:0;
   }
 }
