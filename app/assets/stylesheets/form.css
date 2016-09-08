@@ -68,7 +68,7 @@ input[type=checkbox].css-checkbox:checked+label.css-label{
 }
 
 .css-label {
-  background-image: url(/assets/checkblue.png);
+  background-image: url(https://s3-us-west-2.amazonaws.com/checkmates/checkblue.png);
   margin-right: 10px;
 }
 

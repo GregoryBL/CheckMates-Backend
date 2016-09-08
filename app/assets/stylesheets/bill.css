@@ -9,7 +9,7 @@
 }
 
 header {
-  background: url(/assets/checkmatesLogo.png) no-repeat;
+  background: url(https://s3-us-west-2.amazonaws.com/checkmates/checkmatesLogo.png) no-repeat;
   background-color: #1993F8;
   background-position: center;
   height: 80px;
